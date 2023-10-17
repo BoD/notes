@@ -24,7 +24,7 @@ def route_note_item(method: str, note_id: int, data: dict) -> Response:
         if method == "GET":
             note = notes_db.read_note(note_id)
             if note:
-                return Response(HTTPStatus.OK, notes_db.read_note(note_id))
+                return Response(HTTPStatus.OK, note)
             return Response(
                 HTTPStatus.NOT_FOUND,
                 {"message": "Unknown note"},
